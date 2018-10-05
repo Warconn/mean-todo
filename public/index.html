@@ -7,7 +7,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
 
-	<title>Node/Angular Todo App</title>
+	<title>To Do App</title>
 
 	<!-- SCROLLS -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
@@ -33,19 +33,16 @@
 
 		<!-- HEADER AND TODO COUNT -->
 		<div class="jumbotron text-center">
-			<h1>I'm a Todo-aholic <span class="label label-info">{{ todos.length }}</span></h1>
+			<h1>Things to do: <span class="label label-info">{{ todos.length }}</span></h1>
 		</div>
 
 		<!-- TODO LIST -->
 		<div id="todo-list" class="row">
 			<div class="col-sm-4 col-sm-offset-4">
-
-				
-
 				<!-- LOOP OVER THE TODOS IN $scope.todos -->
 				<div class="checkbox" ng-repeat="todo in todos">
 					<label>
-						<input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }}
+						<input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }} Level: {{todo.priority}}
 					</label>
 				</div>
 
@@ -64,6 +61,7 @@
 
 						<!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
 						<input type="text" class="form-control input-lg text-center" placeholder="What is up next?" ng-model="formData.text">
+						<input type="text" class="form-control input-lg text-center" placeholder="Priority?" ng-model="formData.priority">
 					</div>
 
 					<!-- createToDo() WILL CREATE NEW TODOS -->
